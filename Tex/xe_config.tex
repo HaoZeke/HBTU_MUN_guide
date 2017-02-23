@@ -1,0 +1,76 @@
+% Fonts
+\usepackage{color}
+\usepackage{fontspec}
+% Stop bugging me about \es
+\usepackage{xspace}
+\usepackage[final, stretch=18, shrink=18, factor=1100]{microtype}
+% the (custom) color which will be used in the cv
+\definecolor{color1}{RGB}{1, 52, 64}
+
+% scale the page layout (depreciated for more complicated stuff)
+\usepackage[scale=0.75]{geometry}
+\usepackage[scale=1.0]{ccicons}         % Yay license
+\usepackage{xcolor} 							% This is for defining colors.
+% Required when changing page layout lengths
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{metalogo}
+
+\usepackage[toc,page]{appendix} 	% Appendices
+\usepackage{glossaries} 			% Glossaries
+
+
+% For the Shaded Environments
+\usepackage{framed} 							% This is for defining shaded environments.
+\definecolor{shadecolor}{gray}{0.9} 			% This defined the shading color.
+
+%\PassOptionsToPackage[final, factor=1100, stretch=18, shrink=18 ]{microtype} 	
+% The final option overrides global defaults. It greatly improves general appearance of the text. The stretch and shrink reduce bluriness[20,20 default]. The factor increases protrusion amount by 10%, [default 1000]
+% Tracking allows for small caps, like in cites to be adjusted. The activate commands are to set protrusion.
+
+\microtypecontext{spacing=nonfrench} 						% To preserve interword spacing via \nonfrenchspacing.
+ 
+\SetExtraKerning[unit=space] 								% These produce more effects, from microtype with kerning.
+    {encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+    {\textendash={400,400}, 								% en-dash, add more space around it
+     "28={ ,150}, 											% Left bracket, add space from right
+     "29={150, },											% Right bracket, add space from left
+     \textquotedblleft={ ,150}, 							% Left quotation mark, space from right
+     \textquotedblright={150, }} 							% Right quotation mark, space from left
+
+
+\SetExtraKerning[unit=space]
+  {encoding={*}, family={qhv}, series={b}, size={large,Large}}
+  {1={-200,-200}, 
+   \textendash={400,400}}
+
+\SetTracking{encoding={*}, shape=sc}{40} 					% This is for better small caps with tracking and microtype.
+
+\parindent0pt  \parskip10pt             % make block paragraphs
+\raggedright                            % do not right justify
+
+% Widen the letter spacing for logos
+\setlogokern{La}{0.2pt}
+\setlogokern{Xe}{0.2pt}
+\setlogokern{eL}{0.2pt}
+\setlogokern{Te}{0.2pt}
+\setlogokern{aT}{0.2pt}
+\setlogokern{eX}{0.2pt}
+
+
+% Literata is used as the main font, if you don't
+% have it installed uncomment this line or choose another pretty font
+%\setmainfont[Numbers=OldStyle]{Literata}
+
+\setmainfont[
+Path = ../Fonts/Literata/,
+%Numbers=OldStyle,
+Extension = .otf,
+UprightFont = *_Regular,
+ItalicFont = *_It,
+BoldFont = *_Bold,
+BoldItalicFont = *_BoldIt
+]{Literata}
+
+
+\makeglossaries

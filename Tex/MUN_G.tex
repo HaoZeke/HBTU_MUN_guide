@@ -1,0 +1,22 @@
+\documentclass[11pt]{report}              % Book class in 11 points
+
+\input{xe_config.tex} 					% Keep all configs and includes.
+
+\title{\bf An Example of Book Class}    % Supply information
+\author{for \LaTeX\ Class}              %   for the title page.
+\date{\today}                           %   Use current date. 
+
+% Note that book class by default is formatted to be printed back-to-back.
+\begin{document}                        % End of preamble, start of text.
+\maketitle                              % Print title page.
+\tableofcontents                        % Print table of contents
+\part{Introduction}                   % Print a "part" heading
+\input{Mun_hist}
+\part{Rules}
+
+\part{Study Guide}
+
+\begin{appendices}
+\input{Glossary}
+\end{appendices}
+\end{document}                          % The required last line
