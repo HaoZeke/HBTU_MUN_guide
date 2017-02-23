@@ -7,6 +7,10 @@
 % the (custom) color which will be used in the cv
 \definecolor{color1}{RGB}{1, 52, 64}
 
+\usepackage{hyperref} 					% Hyperref
+\hypersetup{linkcolor=black,
+pdfborder={0 0 0}}
+
 % scale the page layout (depreciated for more complicated stuff)
 \usepackage[scale=0.75]{geometry}
 \usepackage[scale=1.0]{ccicons}         % Yay license
@@ -17,7 +21,9 @@
 \usepackage{metalogo}
 
 \usepackage[toc,page]{appendix} 	% Appendices
-\usepackage{glossaries} 			% Glossaries
+\usepackage[toc,nopostdot]{glossaries} 			% Glossaries
+\glsenablehyper
+\renewcommand*{\glstextformat}[1]{\textcolor{blue}{#1}}
 
 
 % For the Shaded Environments
@@ -73,4 +79,4 @@ BoldItalicFont = *_BoldIt
 ]{Literata}
 
 
-\makeglossaries
+\input{Glossary}
