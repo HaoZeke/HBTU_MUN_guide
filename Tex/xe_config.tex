@@ -12,7 +12,7 @@
 pdfborder={0 0 0}}
 
 % scale the page layout (depreciated for more complicated stuff)
-\usepackage[scale=0.75]{geometry}
+\usepackage{geometry}
 \usepackage[scale=1.0]{ccicons}         % Yay license
 \usepackage{xcolor} 							% This is for defining colors.
 % Required when changing page layout lengths
@@ -20,11 +20,12 @@ pdfborder={0 0 0}}
 \usepackage{xltxtra}
 \usepackage{metalogo}
 
+\usepackage{sidenotes} 		% Notes
 \usepackage[toc,page]{appendix} 	% Appendices
 \usepackage[toc,nopostdot]{glossaries} 			% Glossaries
-\glsenablehyper
+\usepackage{glossary-mcols} 					% Add another column
 \renewcommand*{\glstextformat}[1]{\textcolor{blue}{#1}}
-
+\usepackage[framemethod=TikZ]{mdframed} 		% Framed Boxes
 
 % For the Shaded Environments
 \usepackage{framed} 							% This is for defining shaded environments.
@@ -78,5 +79,38 @@ BoldFont = *_Bold,
 BoldItalicFont = *_BoldIt
 ]{Literata}
 
+ \geometry{
+ a4paper,
+ %total={210mm,297mm},
+ left=15mm,
+ right=15mm,
+ top=15mm,
+ bottom=25mm,
+ }
+
+% Frames
+\newcounter{tip}[section]\setcounter{tip}{0}
+\renewcommand{\thetip}{\arabic{section}.\arabic{tip}}
+\newenvironment{tip}[2][]{%
+\refstepcounter{tip}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Tip~\thetip};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Tip~\thetip:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
 
 \input{Glossary}

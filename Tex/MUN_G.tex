@@ -2,8 +2,8 @@
 
 \input{xe_config.tex} 					% Keep all configs and includes.
 
-\title{\bf An Example of Book Class}    % Supply information
-\author{for \LaTeX\ Class}              %   for the title page.
+\title{\bf HBTU MUN 2017 Guide}    % Supply information
+\author{Rohit Goswami}              %   for the title page.
 \date{\today}                           %   Use current date. 
 
 % Note that book class by default is formatted to be printed back-to-back.
@@ -12,12 +12,14 @@
 \tableofcontents                        % Print table of contents
 \part{Introduction}                   % Print a "part" heading
 \input{Mun_hist}
+\input{GA}
+\input{SPECPOL}
 \part{Rules}
 
 \part{Study Guide}
 
 \begin{appendices}
 \end{appendices}
-\glossarystyle{list}
+\setglossarystyle{mcolindex}
 \printglossary
 \end{document}                          % The required last line
